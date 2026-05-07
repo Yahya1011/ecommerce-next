@@ -59,7 +59,7 @@ export default function LoginPage() {
               required
             />
           </div>
-          <button className="w-full bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-slate-900 transition-all shadow-lg active:scale-95">
+          <button className="w-full cursor-pointer bg-blue-600 text-white py-3 rounded-xl font-bold hover:bg-slate-900 transition-all shadow-lg active:scale-95">
             Masuk Sekarang
           </button>
           <p className="mt-6 text-center text-sm text-slate-600">

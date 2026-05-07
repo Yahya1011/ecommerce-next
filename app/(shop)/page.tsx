@@ -1,4 +1,5 @@
 import pool from "@/lib/db";
+import AddToCartBtn from "@/components/AddToCartBtn";
 
 async function getProducts() {
   try {
@@ -17,7 +18,7 @@ export default async function HomePage() {
 
   return (
     <div className="space-y-12 pb-20">
-      {/* Hero Section - Dibuat lebih elegan dengan gradient */}
+      {/* Hero Section */}
       <section className="relative overflow-hidden bg-slate-900 text-white p-16 rounded-[2rem] shadow-2xl border border-slate-800">
         <div className="relative z-10 max-w-2xl">
           <span className="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-widest uppercase bg-blue-600 rounded-full">
@@ -32,11 +33,10 @@ export default async function HomePage() {
             mendukung operasional bisnis Anda dengan standar rumah sakit dan
             korporasi.
           </p>
-          <button className="bg-white text-slate-900 px-8 py-3 rounded-xl font-bold hover:bg-blue-500 hover:text-white transition-all shadow-lg">
+          <button className="bg-white text-slate-900 px-8 py-3 rounded-xl font-bold hover:bg-blue-500 hover:text-white transition-all shadow-lg cursor-pointer">
             Jelajahi Katalog
           </button>
         </div>
-        {/* Dekorasi Background */}
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-blue-600/20 to-transparent pointer-events-none" />
       </section>
 
@@ -63,7 +63,7 @@ export default async function HomePage() {
                 key={product.id}
                 className="group relative flex flex-col bg-white border border-slate-100 rounded-2xl overflow-hidden hover:border-blue-200 hover:shadow-[0_20px_50px_rgba(8,_112,_184,_0.07)] transition-all duration-300"
               >
-                {/* Image Placeholder dengan Badge */}
+                {/* Image Placeholder */}
                 <div className="relative bg-slate-50 aspect-[4/5] flex items-center justify-center overflow-hidden">
                   <span className="text-6xl group-hover:scale-110 transition-transform duration-500">
                     📦
@@ -113,9 +113,8 @@ export default async function HomePage() {
                       </div>
                     </div>
 
-                    <button className="w-full bg-slate-900 text-white py-3 rounded-xl font-bold text-sm tracking-wide group-hover:bg-blue-600 transition-all flex items-center justify-center gap-2 shadow-md active:scale-95 cursor-pointer">
-                      Tambah Ke Keranjang
-                    </button>
+                    {/* KOMPONEN INTERAKTIF CART DISINI */}
+                    <AddToCartBtn product={product} />
                   </div>
                 </div>
               </div>

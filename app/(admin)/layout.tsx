@@ -1,3 +1,5 @@
+"use client";
+import { signOut } from "next-auth/react";
 import React from "react";
 import Link from "next/link";
 
@@ -6,6 +8,15 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
+  // Kurung kurawal buka harus di sini
+
+  // Fungsi ini harus berada di dalam komponen
+  const handleLogout = async () => {
+    await signOut({
+      callbackUrl: "/login",
+      redirect: true,
+    });
+  };
   return (
     <div className="flex min-h-screen bg-slate-100">
       {/* Sidebar - Pastikan text-white agar tulisan terlihat */}
@@ -49,7 +60,10 @@ export default function AdminLayout({
           <h2 className="font-semibold text-slate-700">Administrator System</h2>
           <div className="flex items-center gap-4">
             <span className="text-sm text-slate-500">v1.0.4</span>
-            <button className="bg-red-50 text-red-600 px-4 py-1.5 rounded-md text-sm font-medium hover:bg-red-100 transition cursor-pointer">
+            <button
+              onClick={handleLogout}
+              className="bg-red-50 text-red-600 px-4 py-1.5 rounded-md text-sm font-medium hover:bg-red-100 transition cursor-pointer"
+            >
               Keluar
             </button>
           </div>

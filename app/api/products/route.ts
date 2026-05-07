@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { db } from "@/lib/db";
+import db from "@/lib/db";
 
 export async function GET() {
   try {
@@ -15,12 +15,12 @@ export async function GET() {
 
 export async function POST(request: Request) {
   const body = await request.json();
-  const { name, price, stock } = body;
+  const { name, description, price, stock } = body;
 
   try {
     const [result] = await db.query(
-      "INSERT INTO products (name, price, stock) VALUES (?, ?, ?)",
-      [name, price, stock],
+      "INSERT INTO products (name, description, price, stock) VALUES (?, ?, ?, ?)",
+      [name, description, price, stock],
     );
     return NextResponse.json({
       message: "Produk berhasil ditambahkan",
